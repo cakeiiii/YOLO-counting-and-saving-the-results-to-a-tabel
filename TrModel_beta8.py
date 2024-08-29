@@ -1,4 +1,6 @@
 #優化性能
+# git remote add origin https://github.com/cakeiiii/your_repo.git
+
 import os
 import cv2
 import pandas as pd
