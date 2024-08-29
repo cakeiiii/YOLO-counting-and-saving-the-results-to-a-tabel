@@ -1,146 +1,54 @@
-<br>
-<a href="https://ultralytics.com" target="_blank"><img src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg" width="320" alt="Ultralytics logo"></a>
+Install
+1. Download the compressed file to your local machine.  
+2. After extracting, type `cmd` in the address bar and press Enter to open the command prompt.  
+3. If necessary, you can create a conda environment (optional).  
+4. Install the required dependencies.  
+   4.1 pip install ultralytics
+   4.2 pip install pyqt6
+6. Run the program by entering `python TrModel_beta8.py` in the command line.
 
-# 📚 Ultralytics Docs
+Usage Instructions
+0. The first time you open the program, it may continue to install some dependencies (I also forgot which dependencies they are).  
+1. Select the folder path for the input video and the output folder (the output will be in AVI format and a CSV file).  
+2. Choose the detection mode:  
+   2.1 **Object Distribution Mode**: Modified based on Ultralytics' heatmap module, it can export the number of detected objects in each frame, thereby indicating the frequency of changes in the number of objects in that space. (This can be used for counting foot traffic in shopping malls and detecting the distribution of people.)  
+   2.2 **Object Counting Mode**: Modified based on Ultralytics' object counting module, it can export the number of objects that have crossed the line up to the current frame. (This can be used to detect the influx and outflux of people in spaces such as shopping malls and train stations.)  
+   2.3 **Object Speed Estimation Mode**: Modified based on Ultralytics' speed estimation module, it can export the speed of objects in the current frame. (This can record the walking speed of pedestrians over different time periods.) However, this module has not been tested yet, so please refer to it with caution.  
+3. Choose the detection line mode (this option can be ignored in object distribution mode):  
+   3.1 Select vertical or horizontal.  
+   3.2 Adjust the position of the detection line by dragging the slider (if choosing vertical detection, try to position the detection line towards the wider area).  
+4. Select the detection model (the default is yolov8n.pt, but you can modify it if needed).  
+5. Choose the detection accuracy (adjust the detection accuracy by controlling the frame interval; 1 means detecting every frame, while 15 means detecting every 15 frames, which is intended to improve video detection efficiency, but currently, the results are not very satisfactory).  
+6. Start running.
+**Note:**  
+1. The detection time is approximately twice the duration of the video.  
+2. Videos in the same folder must have the same resolution.  
+3. Ensure that all dependencies are installed correctly, especially the installation of PyTorch.
+   
+安装方法
+1、下载压缩文件到本地
+2、解压后，在地址栏位置输入cmd，回车，打开命令提示符
+3、如有需要，可以自行创建conda环境（可选）
+4、安装所需依赖
+   4.1 pip install ultralytics
+   4.2 pip install pyqt6
+5、在命令行输入python TrModel_beta8.py运行程序
 
-[Ultralytics](https://ultralytics.com) Docs are the gateway to understanding and utilizing our cutting-edge machine learning tools. These documents are deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com) for your convenience.
+使用方法：
+0、首次打开程序后，可能会继续安装一些依赖（我也忘记是哪些依赖了）
+1、选择输入视频的文件夹地址和输出文件夹的地址（输出avi格式的视频，以及csv表格）
+2、选择检测模式
+2.1物体分布模式：在ultralytics的heatmap模块基础上进行修改，可以导出每一帧检测到的物体数量，从而得知该空间内物体数量变化的频率。（可用于商场内的人流数量统计以及人流分布检测）
+2.2物体计数模式：在ultralytics的objectcounting模块基础上进行修改，可以导出记录到当前帧截至的、过线物体数量的多寡。（可用于检测诸如商场、火车站等空间，人流出入的数量增长曲线）
+2.3物体测速模式：在ultralytics的speetestimat模块基础上进行修改，可以导出当前帧下，物体的速度。（可以记录不同时间段的，行人步行速度）但是该模块还未进行测试，请谨慎参考
+3、选择检测线的模式（物体分布模式可以忽略该选项）
+3.1选择纵向还是横向
+3.2通过拖动滑块，选择检测线的位置（如果选择纵向检测的话，尽量把检测线往大的调）
+4、选择检测模型（默认yolov8n.pt即可，如有需求可以自行修改）
+5、选择检测精度（通过控制检测的间隔帧，来调整检测精度，1表示每帧检测一次，15表示每15帧检测一次，用于提高视频检测效率，但是目前看下来效果不佳）
+6、开始运行
 
-[![pages-build-deployment](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment)
-[![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/links.yml)
-[![Check Domains](https://github.com/ultralytics/docs/actions/workflows/check_domains.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/check_domains.yml)
-[![Ultralytics Actions](https://github.com/ultralytics/docs/actions/workflows/format.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/format.yml)
-
-<a href="https://ultralytics.com/discord"><img alt="Discord" src="https://img.shields.io/discord/1089800235347353640?logo=discord&logoColor=white&label=Discord&color=blue"></a> <a href="https://community.ultralytics.com"><img alt="Ultralytics Forums" src="https://img.shields.io/discourse/users?server=https%3A%2F%2Fcommunity.ultralytics.com&logo=discourse&label=Forums&color=blue"></a> <a href="https://reddit.com/r/ultralytics"><img alt="Ultralytics Reddit" src="https://img.shields.io/reddit/subreddit-subscribers/ultralytics?style=flat&logo=reddit&logoColor=white&label=Reddit&color=blue"></a>
-
-## 🛠️ Installation
-
-[![PyPI - Version](https://img.shields.io/pypi/v/ultralytics?logo=pypi&logoColor=white)](https://pypi.org/project/ultralytics/)
-[![Downloads](https://static.pepy.tech/badge/ultralytics)](https://pepy.tech/project/ultralytics)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ultralytics?logo=python&logoColor=gold)](https://pypi.org/project/ultralytics/)
-
-To install the ultralytics package in developer mode, ensure you have Git and Python 3 installed on your system. Then, follow these steps:
-
-1. Clone the ultralytics repository to your local machine using Git:
-
-    ```bash
-    git clone https://github.com/ultralytics/ultralytics.git
-    ```
-
-2. Navigate to the cloned repository's root directory:
-
-    ```bash
-    cd ultralytics
-    ```
-
-3. Install the package in developer mode using pip (or pip3 for Python 3):
-
-    ```bash
-    pip install -e '.[dev]'
-    ```
-
-- This command installs the ultralytics package along with all development dependencies, allowing you to modify the package code and have the changes immediately reflected in your Python environment.
-
-## 🚀 Building and Serving Locally
-
-The `mkdocs serve` command builds and serves a local version of your MkDocs documentation, ideal for development and testing:
-
-```bash
-mkdocs serve
-```
-
-- #### Command Breakdown:
-
-    - `mkdocs` is the main MkDocs command-line interface.
-    - `serve` is the subcommand to build and locally serve your documentation.
-
-- 🧐 Note:
-
-    - Grasp changes to the docs in real-time as `mkdocs serve` supports live reloading.
-    - To stop the local server, press `CTRL+C`.
-
-## 🌍 Building and Serving Multi-Language
-
-Supporting multi-language documentation? Follow these steps:
-
-1. Stage all new language \*.md files with Git:
-
-    ```bash
-    git add docs/**/*.md -f
-    ```
-
-2. Build all languages to the `/site` folder, ensuring relevant root-level files are present:
-
-    ```bash
-    # Clear existing /site directory
-    rm -rf site
-
-    # Loop through each language config file and build
-    mkdocs build -f docs/mkdocs.yml
-    for file in docs/mkdocs_*.yml; do
-      echo "Building MkDocs site with $file"
-      mkdocs build -f "$file"
-    done
-    ```
-
-3. To preview your site, initiate a simple HTTP server:
-
-    ```bash
-    cd site
-    python -m http.server
-    # Open in your preferred browser
-    ```
-
-- 🖥️ Access the live site at `http://localhost:8000`.
-
-## 📤 Deploying Your Documentation Site
-
-Choose a hosting provider and deployment method for your MkDocs documentation:
-
-- Configure `mkdocs.yml` with deployment settings.
-- Use `mkdocs deploy` to build and deploy your site.
-
-* ### GitHub Pages Deployment Example:
-
-    ```bash
-    mkdocs gh-deploy
-    ```
-
-- Update the "Custom domain" in your repository's settings for a personalized URL.
-
-![196814117-fc16e711-d2be-4722-9536-b7c6d78fd167](https://user-images.githubusercontent.com/26833433/210150206-9e86dcd7-10af-43e4-9eb2-9518b3799eac.png)
-
-- For detailed deployment guidance, consult the [MkDocs documentation](https://www.mkdocs.org/user-guide/deploying-your-docs/).
-
-## 💡 Contribute
-
-We cherish the community's input as it drives Ultralytics open-source initiatives. Dive into the [Contributing Guide](https://docs.ultralytics.com/help/contributing) and share your thoughts via our [Survey](https://ultralytics.com/survey?utm_source=github&utm_medium=social&utm_campaign=Survey). A heartfelt thank you 🙏 to each contributor!
-
-![Ultralytics open-source contributors](https://github.com/ultralytics/assets/raw/main/im/image-contributors.png)
-
-## 📜 License
-
-Ultralytics Docs presents two licensing options:
-
-- **AGPL-3.0 License**: Perfect for academia and open collaboration. Details are in the [LICENSE](https://github.com/ultralytics/docs/blob/main/LICENSE) file.
-- **Enterprise License**: Tailored for commercial usage, offering a seamless blend of Ultralytics technology in your products. Learn more at [Ultralytics Licensing](https://ultralytics.com/license).
-
-## ✉️ Contact
-
-For Ultralytics bug reports and feature requests please visit [GitHub Issues](https://github.com/ultralytics/ultralytics/issues). Become a member of the Ultralytics [Discord](https://ultralytics.com/discord), [Reddit](https://reddit.com/r/ultralytics), or [Forums](https://community.ultralytics.com) for asking questions, sharing projects, learning discussions, or for help with all things Ultralytics!
-
-<br>
-<div align="center">
-  <a href="https://github.com/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-github.png" width="3%" alt="Ultralytics GitHub"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://www.linkedin.com/company/ultralytics/"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-linkedin.png" width="3%" alt="Ultralytics LinkedIn"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://twitter.com/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-twitter.png" width="3%" alt="Ultralytics Twitter"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://youtube.com/ultralytics?sub_confirmation=1"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-youtube.png" width="3%" alt="Ultralytics YouTube"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://www.tiktok.com/@ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-tiktok.png" width="3%" alt="Ultralytics TikTok"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://ultralytics.com/bilibili"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-bilibili.png" width="3%" alt="Ultralytics BiliBili"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://ultralytics.com/discord"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-discord.png" width="3%" alt="Ultralytics Discord"></a>
-</div>
+注意：
+1、检测时间约为视频时常的两倍
+2、同个文件夹内的视频分辨率必须相同
+3、注意安装好依赖，尤其是pytorch的安装
