@@ -6,7 +6,15 @@ Download the compressed file to your local machine.
 After extracting, type cmd in the address bar and press Enter to open the command prompt.
 If necessary, you can create a conda environment (optional).
 Install the required dependencies.
-4.1 pip install ultralytics 4.2 pip install pyqt6
+4.1 pip install ultralytics 
+4.2 pip install pyqt6
+4.3 pip install pandas
+4.4 pip install psutil
+4.5 pip install matplotlib
+4.6 pip install tqdm
+4.7 pip install shapely
+4.8 pip install scipy
+4.9 pip install lapx
 Run the program by entering python TrModel_beta8.py in the command line.
 Usage Instructions 0. The first time you open the program, it may continue to install some dependencies (I also forgot which dependencies they are).
 
@@ -31,8 +39,15 @@ Ensure that all dependencies are installed correctly, especially the installatio
 2、解压后，在地址栏位置输入cmd，回车，打开命令提示符 
 3、如有需要，可以自行创建conda环境（可选）
 4、安装所需依赖 
-4.1 pip install ultralytics
-4.2 pip install pyqt6 
+4.1 pip install ultralytics 
+4.2 pip install pyqt6
+4.3 pip install pandas
+4.4 pip install psutil
+4.5 pip install matplotlib
+4.6 pip install tqdm
+4.7 pip install shapely
+4.8 pip install scipy
+4.9 pip install lapx
 5、在命令行输入python TrModel_beta8.py运行程序
 
 使用方法：
